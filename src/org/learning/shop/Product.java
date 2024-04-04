@@ -48,7 +48,7 @@ public class Product {
 
     @Override
     public String toString() {
-        return String.format("%s, %s, %s, %s, %s, %s", code, name, brand, price, vat);
+        return String.format("%s, %s, %s, %s, %s, %s", code, name, brand, price, vat, getGrossPrice());
     }
 
     public int getCode() {
