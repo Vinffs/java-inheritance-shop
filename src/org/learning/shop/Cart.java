@@ -25,7 +25,7 @@ public class Cart {
         }
 
         System.out.print("Do you have the loyalty card? Y/N ");
-        boolean loyaltyCard = Objects.equals(scan.nextLine(), "Y");
+        boolean loyaltyCard = Objects.equals(scan.nextLine().toUpperCase(), "Y");
 
         for (int i = 0; i < cart.length; i++) {
             System.out.println("----------------------");
@@ -61,7 +61,7 @@ public class Cart {
                     System.out.print("Storage (GB): ");
                     int storage = Integer.parseInt(scan.nextLine());
 
-                    Smartphone smartphone = new Smartphone(name, brand, price, imei, storage);
+                    Smartphone smartphone = new Smartphone(name, brand, price, imei, storage, loyaltyCard);
                     cart[i] = smartphone;
                     break;
 
@@ -70,9 +70,9 @@ public class Cart {
                     int inches = Integer.parseInt(scan.nextLine());
 
                     System.out.print("Is it Smart? Y/N ");
-                    boolean isSmart = Objects.equals(scan.nextLine(), "Y");
+                    boolean isSmart = Objects.equals(scan.nextLine().toUpperCase(), "Y");
 
-                    Television television = new Television(name, brand, price, inches, isSmart);
+                    Television television = new Television(name, brand, price, inches, isSmart, loyaltyCard);
                     cart[i] = television;
                     break;
 
@@ -81,9 +81,9 @@ public class Cart {
                     String color = scan.nextLine();
 
                     System.out.print("Is it Wireless? Y/N ");
-                    boolean isWireless = Objects.equals(scan.nextLine(), "Y");
+                    boolean isWireless = Objects.equals(scan.nextLine().toUpperCase(), "Y");
 
-                    Headphone headphone = new Headphone(name, brand, price, color, isWireless);
+                    Headphone headphone = new Headphone(name, brand, price, color, isWireless, loyaltyCard);
 
                     cart[i] = headphone;
                     break;

@@ -7,6 +7,7 @@ import java.util.Random;
 public class Product {
 
     private final double vat = 0.23;
+    public BigDecimal discountPercentage = BigDecimal.ZERO;
     // ATTRIBUTES
     private int code;
     private String name, brand;
@@ -14,41 +15,25 @@ public class Product {
 
     // CONSTRUCTORS
 
-    public Product(String name, String brand, double price) {
+    public Product(String name, String brand, double price, boolean loyaltyCard) {
         this.code = generateCode();
         this.name = name;
         this.brand = brand;
         this.price = correctPrice(price);
+
+        if (loyaltyCard) {
+            this.discountPercentage = BigDecimal.valueOf(0.02);
+        }
+
     }
 
 
     // METHODS
 
-    // Add a method for calculating discounted price
-    public BigDecimal getDiscountedPrice(boolean hasLoyaltyCard) {
-        BigDecimal discountPercentage;
+    public BigDecimal getDiscountedPrice(boolean loyaltyCard) {
         BigDecimal grossPrice = getGrossPrice();
-        if (hasLoyaltyCard) {
-            discountPercentage = BigDecimal.valueOf(0.02);
-            if (this instanceof Smartphone) {
-                Smartphone smartphone = (Smartphone) this;
-                if (smartphone.getStorage() < 32)
-                    discountPercentage = BigDecimal.valueOf(0.05);
-            } else if (this instanceof Television) {
-                Television television = (Television) this;
-                if (!television.isSmart())
-                    discountPercentage = BigDecimal.valueOf(0.10);
-            } else if (this instanceof Headphone) {
-                Headphone headphone = (Headphone) this;
-                if (!headphone.isWireless()) {
-                    discountPercentage = BigDecimal.valueOf(0.07);
-                }
-            }
-            BigDecimal discount = grossPrice.multiply(discountPercentage);
-            return grossPrice.subtract(discount).setScale(2, RoundingMode.HALF_UP);
-        } else {
-            return grossPrice;
-        }
+        BigDecimal discount = grossPrice.multiply(discountPercentage);
+        return grossPrice.subtract(discount).setScale(2, RoundingMode.HALF_UP);
 
     }
 

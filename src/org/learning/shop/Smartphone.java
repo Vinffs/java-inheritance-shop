@@ -1,14 +1,27 @@
 package org.learning.shop;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 public class Smartphone extends Product {
 
     private String imei;
     private int storage;
 
-    public Smartphone(String name, String brand, double price, String imei, int storage) {
-        super(name, brand, price);
+    public Smartphone(String name, String brand, double price, String imei, int storage, boolean loyaltyCard) {
+        super(name, brand, price, loyaltyCard);
         this.imei = imei;
         this.storage = storage;
+    }
+
+    @Override
+    public BigDecimal getDiscountedPrice(boolean loyaltyCard) {
+        BigDecimal grossPrice = getGrossPrice();
+        if (loyaltyCard && getStorage() < 32) {
+            discountPercentage = BigDecimal.valueOf(0.05);
+        }
+        BigDecimal discount = grossPrice.multiply(discountPercentage);
+        return grossPrice.subtract(discount).setScale(2, RoundingMode.HALF_UP);
     }
 
     // GETTERS
