@@ -48,7 +48,7 @@ public class Product {
 
     @Override
     public String toString() {
-        return "Product{" + "code=" + code + ", name='" + name + '\'' + ", brand='" + brand + '\'' + ", price=" + price + ", vat=" + (vat * 100) + "%" + '}';
+        return String.format("%s, %s, %s, %s, %s, %s", code, name, brand, price, vat);
     }
 
     public int getCode() {
@@ -63,6 +63,9 @@ public class Product {
         return this.brand;
     }
 
+    public double getVat() {
+        return this.vat;
+    }
 
     // SETTERS
 
