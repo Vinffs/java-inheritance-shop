@@ -48,8 +48,10 @@ public class Product {
 
     @Override
     public String toString() {
-        return String.format("%s, %s, %s, %s, %s, %s", code, name, brand, price, vat, getGrossPrice());
+        return String.format("Code: %s\nName: %s\nBrand: %s\nPrice: %s\nVAT: %s\nGross Price: %s",
+                code, name, brand, price, vat, getGrossPrice());
     }
+
 
     public int getCode() {
         return this.code;

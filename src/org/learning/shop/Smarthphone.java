@@ -29,7 +29,8 @@ public class Smarthphone extends Product{
 
     @Override
     public String toString() {
-        return String.format("%s, %s, %s, %s, %s, %s, %s, %s", getCode(), getName(), getBrand(), getPrice(), getVat(),
-         getGrossPrice(), imei, storage);
+        return String.format("Code: %s\nName: %s\nBrand: %s\nPrice: %s\nVAT: %s\nGross Price: %s\nIMEI: %s\nStorage: %s",
+                getCode(), getName(), getBrand(), getPrice(), getVat(), getGrossPrice(), imei, storage);
     }
+
 }

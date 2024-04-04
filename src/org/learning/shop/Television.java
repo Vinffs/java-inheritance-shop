@@ -32,7 +32,8 @@ public class Television extends Product{
 
     @Override
     public String toString() {
-            return String.format("%s, %s, %s, %s, %s, %s, %s, %s", getCode(), getName(), getBrand(), getPrice(),
-                    getVat(), getGrossPrice(), inches, isSmart);
+        return String.format("Code: %s\nName: %s\nBrand: %s\nPrice: %s\nVAT: %s\nGross Price: %s\nInches: %s\nSmart: %s",
+                getCode(), getName(), getBrand(), getPrice(), getVat(), getGrossPrice(), inches, isSmart);
     }
+
 }

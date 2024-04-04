@@ -31,8 +31,8 @@ public class Headphone extends Product{
 
     @Override
     public String toString() {
-    return String.format("%s, %s, %s, %s, %s, %s, %s, %s", getCode(), getName(), getBrand(), getPrice(), getVat(),
-            getGrossPrice(), color
-            , isWireless);
+        return String.format("Code: %s\nName: %s\nBrand: %s\nPrice: %s\nVAT: %s\nGross Price: %s\nColor: %s\nWireless: %s",
+                getCode(), getName(), getBrand(), getPrice(), getVat(), getGrossPrice(), color, isWireless);
     }
+
 }
