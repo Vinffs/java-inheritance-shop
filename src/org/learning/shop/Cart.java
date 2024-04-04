@@ -23,6 +23,27 @@ public class Cart {
         }
     }
 
+        for (int i = 0; i < cart.length ; i++) {
+            System.out.println("----------------------");
+            System.out.println();
+
+            System.out.println("Product Number: " + (i + 1));
+
+            int product = 0;
+            try {
+                System.out.println("Please Choose the type of product: \n"+
+                        "1. Smartphone \n" +
+                        "2. Television \n" +
+                        "3. Headphone \n");
+                System.out.print("Tell us your choice: ");
+                product = Integer.parseInt(scan.nextLine());
+            } catch(NumberFormatException e) {
+                System.out.println("Invalid choice, please select a product by index.");
+                i--;
+            }
+
+        }
+
 
     }
 }
